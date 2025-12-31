@@ -9,8 +9,8 @@ services:
       - DOCKER_MODS=linuxserver/mods:universal-calibre #optional
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
     volumes:
-      - ./calibre-web/data:/config
-      - ./calibre/library:/books
+      - ./config/calibre-web:/config
+      - ./library:/library
     ports:
       - 8083:8083
     restart: unless-stopped
@@ -31,7 +31,7 @@ services:
       - 8181:8181
       - 8081:8081
     volumes:
-      - ./calibre/config:/config
-      - ./calibre/library:/books
+      - ./config/calibre:/config
+      - ./library:/library
     shm_size: '1gb'
     restart: unless-stopped
